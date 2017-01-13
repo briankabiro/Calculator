@@ -1,0 +1,40 @@
+#app{
+	height:50vh;
+	width:25vw;
+	background-color: aliceblue;
+	display: flex;
+	flex-flow: column;
+}
+#display-area{
+	height:12vh;
+	width:100%;
+	background-color: coral;	
+}
+.numbers{
+	display: flex;
+	flex-flow: row;
+	justify-content: space-around;
+}
+#signs{
+	display: flex;
+	flex-flow: row nowrap;
+	justify-content: space-around;
+}
+table{
+	border-collapse: collapse;
+	width: 100%;
+}
+
+table *{
+	font-size:1.3em;
+	font-family: Arial;
+}
+
+td{
+	border:0.1em solid black;
+	padding: 3px;
+	text-align: left;
+}
+td:hover{
+	background-color: red;
+}
