@@ -1,0 +1,76 @@
+/*
+	colors:#CEC6AA, cream-E3CEA7, C6B69B,darkarea-34373D, red-C77966, B1A38D
+*/
+
+.wrapper{
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+	font-family: Century Gothic;
+}
+
+#app{
+	height:55vh;
+	width:22vw;
+	display: flex;
+	flex-direction: column;
+	background-color: grey;
+	border-left: 0.01em solid #34373D;
+}
+
+#results-display-area{
+	flex:2;
+	display:flex;
+	background-color:#34373D;
+	flex-direction: column;
+	align-items: flex-end;
+	justify-content: center;
+}
+
+#generic-row, #last-row{
+	flex:1;
+	display: flex;
+	flex-direction: row;
+	justify-content: space-around;
+	background-color: #E3CEA7;
+}
+
+#generic-row * {
+	flex:1;
+	display: flex;
+	border-right:0.5px solid #34373D;
+	border-bottom:0.5px solid #34373D;
+	justify-content: center;
+	align-items:center;
+	font-size: 2em;
+	color:#34373D;
+}
+#generic-row *:hover{
+	background-color: rgba(000,000,000,0.5);
+	cursor: pointer;
+}
+
+#last-row * {
+	display: flex;
+	border-right:0.5px solid #34373D;
+	border-bottom:0.5px solid #34373D;
+	justify-content: center;
+	align-items:center;
+	font-size: 2em;
+	color: #301934;	
+}
+#last-row *:hover{
+	background-color: rgba(000,000,000,0.5);
+	cursor: pointer;
+}
+
+#zero{
+	flex:2;
+	padding-right: 1px;
+}
+#decimal, #equals{
+	flex:1;
+}
+#plus, #minus, #equals, #multiply, #divide{
+	background:#C77966 
+}

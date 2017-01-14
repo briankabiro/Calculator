@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<html lang="en">
+		<title>The Calculator</title>
+		<link rel="stylesheet" type="text/css" href="calculator.css">
+
+	</head>
+
+
+	<body>
+	<script src="https://unpkg.com/vue/dist/vue.js"></script>
+	
+		
+		<div class="wrapper">
+			<div id="app">
+				<div id="results-display-area">
+					<div v-bind:style="topPartStyle">{{topPart}}</div>
+					<div v-bind:style="lowerPartStyle">{{lowerPart}}</div>
+				</div>
+
+				<div id="generic-row">
+					<span @click ="reset">C</span>
+					<span>+/-</span>
+					<span>%</span>
+					<span @click="pushed('/')" id="divide">/</span>
+				</div>
+
+				<div id="generic-row">
+					<span @click="pushed(7)">7</span>
+					<span @click="pushed(8)">8</span>
+					<span @click="pushed(9)">9</span>
+					<span @click="pushed('x')" id="multiply">x</span>
+				</div>
+
+				<div id="generic-row">
+					<span @click="pushed(4)">4</span>
+					<span @click="pushed(5)">5</span>
+					<span @click="pushed(6)">6</span>
+					<span @click="pushed('-')" id="minus">-</span>
+				</div>
+
+				<div id="generic-row">
+					<span @click="pushed(1)">1</span>
+					<span @click="pushed(2)">2</span>
+					<span @click="pushed(3)">3</span>
+					<span @click="pushed('+')" id="plus">+</span>
+				</div>
+
+				<div id="last-row">
+					<span id="zero" @click="pushed(0)">0</span>
+					<span id="decimal" @click="pushed(decimal)">.</span>
+					<span id="equals" @click="pushed('=')">=</span>
+				</div>
+
+			</div>
+		</div>
+
+		<script src="Calculator.js"></script>
+	</body>
+
+</html>

@@ -1,40 +1,75 @@
-#app{
-	height:50vh;
-	width:25vw;
-	background-color: aliceblue;
+.wrapper{
 	display: flex;
 	flex-flow: column;
+	align-items: center;
+}
+#app{
+	background-color:white;
+	display: flex;
+	flex-flow: column;
+	width:20vw;
+	box-shadow: 0em 0em 1.2em rgb(126,126,128);
+	font-family: Calibri;
 }
 #display-area{
 	height:12vh;
 	width:100%;
-	background-color: coral;	
+	background-color:white;	
 }
-.numbers{
-	display: flex;
-	flex-flow: row;
-	justify-content: space-around;
-}
-#signs{
+
+.signs-row{
 	display: flex;
 	flex-flow: row nowrap;
 	justify-content: space-around;
 }
-table{
-	border-collapse: collapse;
-	width: 100%;
+
+.number-row{
+	display: flex;
+	flex-flow: row nowrap;
+	justify-content: space-around;
+}
+.signs-row *{
+	height:4vw;
+	width:4vw;
+	background:#00CED1;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	font-size: 1.5em;
+	flex:1;
+	color:white;
+}
+.number-row *{
+	background:#696969;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	font-size: 1.5em;
+	flex:1;
+	height:5vw;
+	color:white;
 }
 
-table *{
-	font-size:1.3em;
-	font-family: Arial;
+.signs-row *:hover{
+	background-color:rgba(100,149,237,0.3)
+}
+.number-row *:hover{
+	background-color:rgba(128,128,128,0.3)	
 }
 
-td{
-	border:0.1em solid black;
-	padding: 3px;
-	text-align: left;
+.demo{
+	border-collapse: separate;
+	border-spacing: 3px;
 }
-td:hover{
-	background-color: red;
+
+#table-body:not(first-child) * {
+	width:4em;
+	height:4em;
+	text-align: center;
+	background:#D3D3D3;
+}
+
+#table-body:nth-child(1) * {
+	width:2em;
+	height: 4em;
 }
