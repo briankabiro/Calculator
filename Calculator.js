@@ -16,10 +16,11 @@ var vm = new Vue({
 	el:"#app",
 	data:{
 		displayArray:[],
-		total:null,
+		total:0,
 		state:null,
 		topPart:null,
 		lowerPart:null,
+		afterEquals:false,
 		topPartStyle:{
 			color:"#E3CEA7",			
 			paddingRight:"1em"
@@ -29,38 +30,32 @@ var vm = new Vue({
 			fontSize:'3em'
 		}
 	},
+
+/*Add elements to a string, when equals,join array, then eval string ,allow delete previous through del button,allow decimal
+	if decimal
+*/
 	methods:{
 		pushed(element){
+			if(this.afterEquals){
+				this.topPart = this.lowerPart
+				this.afterEquals=false
+			}
+			/*if(element == "decimal"){
+				this.state='decimal'
+				this.displayArray[this.displayArray.length - 1] + element.toString()
+			}*/
+
+
 			this.displayArray.push(element)
 			this.lowerPart = this.displayArray.join('')
 
-			if(!this.total && this.total != 0){
-				this.total = element
-			}
-
 			if(element == "="){
+				this.displayArray.pop()
+				this.afterEquals = true
+				this.total = eval(this.displayArray.join(''))
 				this.lowerPart = this.total;
 				this.topPart =  this.displayArray.join('');
-			}else if(Number.isInteger(element)) {
-
-				switch(this.state){
-					case '+':
-						this.total = this.total + element
-						console.log(this.total)
-						break;
-					case '-':
-						this.total= this.total - element
-						break;
-					case 'x':
-						this.total = this.total * element
-						break;
-					case '/':
-						this.total = this.total/element
-						break;
-				}
-			}
-			else if(!Number.isInteger(element)){
-				this.state = element
+				this.displayArray=[];          
 			}
 
 		},
@@ -70,6 +65,6 @@ var vm = new Vue({
 			this.lowerPart = null,
 			this.topPart = null,
 			this.state = null
-		}
+		},
 	}
 })
