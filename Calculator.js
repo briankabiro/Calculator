@@ -17,10 +17,11 @@ var vm = new Vue({
 	data:{
 		displayArray:[],
 		total:0,
-		state:null,
+		decimal:false,
 		topPart:null,
 		lowerPart:null,
 		afterEquals:false,
+		state:false,
 		topPartStyle:{
 			color:"#E3CEA7",			
 			paddingRight:"1em"
@@ -40,15 +41,20 @@ var vm = new Vue({
 				this.topPart = this.lowerPart
 				this.afterEquals=false
 			}
-			/*if(element == "decimal"){
-				this.state='decimal'
-				this.displayArray[this.displayArray.length - 1] + element.toString()
-			}*/
+			//if decimal, set decimal true, if !decimal 
+			if(Number.isInteger(element) && this.state){
+				this.state = false;
+			}
 
+			if(element == "."){
+				this.state= true;
+				this.displayArray[this.displayArray.length - 1] = this.displayArray[this.displayArray.length - 1] + element;
+			}
 
-			this.displayArray.push(element)
-			this.lowerPart = this.displayArray.join('')
-
+			if(!this.state){
+				this.displayArray.push(element)
+				this.lowerPart = this.displayArray.join('')
+			}
 			if(element == "="){
 				this.displayArray.pop()
 				this.afterEquals = true
@@ -63,8 +69,7 @@ var vm = new Vue({
 			this.displayArray = [],
 			this.total = null,
 			this.lowerPart = null,
-			this.topPart = null,
-			this.state = null
+			this.topPart = null
 		},
 	}
 })
